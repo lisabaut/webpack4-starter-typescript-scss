@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title><%= htmlWebpackPlugin.options.title %></title>
+  </head>
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="https://browsehappy.com/">upgrade your browser</a> to improve
+        your experience and security.
+      </p>
+    <![endif]-->
+    <img src=<%=require("../images/sea-and-sun.svg")%> />
+    <h1>Hey there!</h1>
+    <p>This is a simple HTML page with images, JS, and CSS.</p>
+    <p><a href="./about.html">About</a></p>
+    <div class="test-background">
+      This is a div with a css background image
+    </div>
+    <p>
+      The text below this line was added with JavaScript (written in
+      TypeScript):
+    </p>
+  </body>
+</html>

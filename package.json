@@ -1,0 +1,40 @@
+{
+  "name": "webpack4-starter-typescript-scss",
+  "version": "0.1.0",
+  "description": "Webpack 4 Starter Kit with TypeScript and SCSS support",
+  "author": "lisabaut",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server --open --config webpack.config.js",
+    "build": "webpack --mode production --config webpack.config.js",
+    "lint": "tsc --noEmit && eslint 'src/**/*.{js,ts}' --quiet --fix",
+    "stylelint": "stylelint 'src/**/*.scss' —-fix"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.6.0",
+    "@typescript-eslint/parser": "^2.6.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-preset-env": "^6.7.0",
+    "prettier": "^1.18.2",
+    "sass-loader": "^8.0.0",
+    "stylelint": "^11.1.1",
+    "stylelint-config-recommended-scss": "^4.0.0",
+    "stylelint-prettier": "^1.1.1",
+    "stylelint-scss": "^3.12.1",
+    "ts-loader": "^6.2.1",
+    "typescript": "^3.6.4",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}

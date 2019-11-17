@@ -1,0 +1,34 @@
+@import 'fonts';
+@import 'normalize';
+
+$primaryColor: #0f8b8b;
+$secondaryColor: #a8201a;
+$backgroundColor: #efece7;
+$darkColor: #143642;
+$highlightColor: $secondaryColor;
+$fontColor: $darkColor;
+
+body {
+  background: $backgroundColor;
+  font-family: 'roboto_slab-regular';
+  color: $fontColor;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'roboto_slab-bold';
+}
+
+a {
+  text-decoration: none;
+  color: $highlightColor;
+}
+
+.test-background {
+  background: url('../images/bg.png');
+}
