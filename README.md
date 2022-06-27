@@ -1,6 +1,6 @@
-## Webpack 4 Starter
+## Webpack 5 Starter
 
-This is a simple Webpack 4 Starter Kit including Webpack-Dev-Server and TypeScript and SCSS support.
+This is a simple Webpack 5 Starter Kit including Webpack-Dev-Server and TypeScript and SCSS support.
 
 ### How to use this starter kit
 

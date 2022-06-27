@@ -23,6 +23,7 @@ module.exports = (env, argv) => {
     output: {
       filename: isProductionMode ? 'js/bundle.[hash].js' : 'js/bundle.js',
       path: path.resolve(__dirname, publicPath),
+      assetModuleFilename: 'images/[hash][ext][query]',
     },
     module: {
       // Rules are read from right to left
@@ -37,9 +38,6 @@ module.exports = (env, argv) => {
           use: [
             {
               loader: MiniCssExtractPlugin.loader,
-              options: {
-                publicPath: '../', // enable relative paths for images and fonts
-              },
             },
             'css-loader',
             {
@@ -64,7 +62,9 @@ module.exports = (env, argv) => {
           options: {
             name: '[name].[ext]',
             outputPath: 'images',
+            esModule: false,
           },
+          type: 'javascript/auto',
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,
@@ -74,9 +74,11 @@ module.exports = (env, argv) => {
               options: {
                 name: '[name].[ext]',
                 outputPath: 'fonts',
+                esModule: false,
               },
             },
           ],
+          type: 'javascript/auto',
         },
       ],
     },
