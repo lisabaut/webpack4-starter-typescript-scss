@@ -15,14 +15,14 @@ module.exports = (env, argv) => {
     ...(!isProductionMode
       ? {
           devServer: {
-            contentBase: publicPath
-          }
+            static: './',
+          },
         }
       : {}),
     entry: ['./src/ts/index.ts', './src/sass/index.scss'],
     output: {
       filename: isProductionMode ? 'js/bundle.[hash].js' : 'js/bundle.js',
-      path: path.resolve(__dirname, publicPath)
+      path: path.resolve(__dirname, publicPath),
     },
     module: {
       // Rules are read from right to left
@@ -30,7 +30,7 @@ module.exports = (env, argv) => {
         {
           test: /\.tsx?$/,
           use: 'ts-loader',
-          exclude: /node_modules/
+          exclude: /node_modules/,
         },
         {
           test: /\.s[ac]ss$/i,
@@ -39,31 +39,32 @@ module.exports = (env, argv) => {
               loader: MiniCssExtractPlugin.loader,
               options: {
                 publicPath: '../', // enable relative paths for images and fonts
-                hmr: !isProductionMode
-              }
+              },
             },
             'css-loader',
             {
               loader: 'postcss-loader',
               options: {
-                ident: 'postcss',
-                plugins: () => [
-                  postcssPresetEnv({
-                    autoprefixer: { grid: true }
-                  })
-                ]
-              }
+                postcssOptions: {
+                  ident: 'postcss',
+                  plugins: () => [
+                    postcssPresetEnv({
+                      autoprefixer: { grid: true },
+                    }),
+                  ],
+                },
+              },
             },
-            'sass-loader'
-          ]
+            'sass-loader',
+          ],
         },
         {
           test: /\.(svg|png|jpe?g|gif)$/i,
           loader: 'file-loader',
           options: {
             name: '[name].[ext]',
-            outputPath: 'images'
-          }
+            outputPath: 'images',
+          },
         },
         {
           test: /\.(eot|ttf|woff|woff2)$/,
@@ -72,20 +73,20 @@ module.exports = (env, argv) => {
               loader: 'file-loader',
               options: {
                 name: '[name].[ext]',
-                outputPath: 'fonts'
-              }
-            }
-          ]
-        }
-      ]
+                outputPath: 'fonts',
+              },
+            },
+          ],
+        },
+      ],
     },
     plugins: [
       new CleanWebpackPlugin(),
       new MiniCssExtractPlugin({
-        filename: isProductionMode ? 'css/[name].[hash].css' : 'css/[name].css'
+        filename: isProductionMode ? 'css/[name].[hash].css' : 'css/[name].css',
       }),
       // creates HTMLPlugins from each HTML file in folder "templates"
-      ...HTMLTemplates.createPlugins(isProductionMode)
-    ]
+      ...HTMLTemplates.createPlugins(isProductionMode),
+    ],
   };
 };
